@@ -1,5 +1,6 @@
 package com.myfirstSeleniumProject;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -71,9 +72,22 @@ public class day04_Xpath {
          logout.click();
 
 
+         //    Then verify the logout is successful
+
+          WebElement logoutSuc= driver.findElement(By.xpath("//*[.='Login']"));
+
+
+          Assertions.assertTrue(logoutSuc.getText().contains("Login"));
+
+
+
      }
 
 
+     @AfterAll
+    public static void tearDown(){
+        driver.close();
+     }
 
 
 
