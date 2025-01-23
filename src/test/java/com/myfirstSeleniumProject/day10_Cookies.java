@@ -27,10 +27,9 @@ public class day10_Cookies extends TestBase {
         //    Find the total number of cookies
 
         Set<Cookie> allcookies = driver.manage().getCookies();
-
         System.out.println(allcookies.size());
 
-        //    Print all the cookies
+        //    Print all the cookies(elementleri konsolda gormek icin list lerde for kullanilir)
 
         for (Cookie eachCookies:allcookies){
             System.out.println("her bir cookie = " + eachCookies);
@@ -48,14 +47,12 @@ public class day10_Cookies extends TestBase {
 
         //ekle new cookie
         Cookie addNewCooie=new Cookie("selenium","dersi");
-
         driver.manage().addCookie(addNewCooie);
 
         Set<Cookie> newallcookies = driver.manage().getCookies();
 
         for (Cookie each:newallcookies){
-
-          System.out.println(each.getName());
+            System.out.println(each.getName());
         }
 
         //    Delete all cookies

@@ -43,10 +43,24 @@ public class day09_WebTables extends TestBase {
             System.out.println("row number "+rowNumber+" = "+each.getText());
             rowNumber++;
         }
+
 //        Task 3 : Print Last row data only
+
+          System.out.println("En son satiri yazdiracak = " + allRows.get(allRows.size() - 1).getText());
+
 //        Task 4 : Print column 5 data in the table body
 
-//                HW
+        List<WebElement> sutun5tekielementler = driver.findElements(By.xpath("//table[@id='table1']//tr//td[5]"));
+
+        int row=1;
+        for ( WebElement each:sutun5tekielementler){
+
+            System.out.println( "Row Number"+row+"=" +each.getText());
+
+        }
+
+
+        //                HW
 //        Task 5 :  Print the information of columns 1 and 2 in 3 rows
 //        Task 6 : Write a method that accepts 2 parameters
 //        Parameter 1 = row number

@@ -13,7 +13,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -340,10 +345,40 @@ public abstract class   TestBase {
             robot.keyRelease(KeyEvent.VK_ENTER);
             waitFor(1);
             System.out.println("Upload is completed...");
-        }catch (Exception e){
+           }catch (Exception e){
         }
     }
 
 
+    /**
+     * Bu method tum sayfanin ekran görüntüsünü alir
+     */
+    public void takeScreenShot(){
 
-}
+        try {
+            Files.createDirectories(Paths.get("screenShots"));
+            TakesScreenshot ts = (TakesScreenshot) driver;
+            String date = DateTimeFormatter.ofPattern("ddMMyyyy_HHmmss").format(LocalDateTime.now());
+            Files.write(Paths.get("screenShots/image "+date+".jpeg"), ts.getScreenshotAs(OutputType.BYTES));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    /**
+     * Bu method verilen weblementin ekran görüntüsünü alir
+     * @param webelement
+     */
+    public void screenShotOfWebElement(WebElement webelement) {
+        try {
+            Files.createDirectories(Paths.get("screenShots"));
+            String date = DateTimeFormatter.ofPattern("ddMMyyyy_HHmmss").format(LocalDateTime.now());
+            Files.write(Paths.get("screenShots/we_" + date + ".png"), webelement.getScreenshotAs(OutputType.BYTES));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+}}

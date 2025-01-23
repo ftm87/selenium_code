@@ -43,9 +43,7 @@ public class day12_JavaSkripExecuter extends TestBase {
 //        Then scroll to Amazon Music element at the bottom of the page
 
         WebElement amazonMusic =  driver.findElement(By.xpath("//a[text()='Amazon Music']"));
-
         js.executeScript("arguments[0].scrollIntoView(true);",amazonMusic);
-
         Thread.sleep(2000);
 
 
@@ -63,6 +61,9 @@ public class day12_JavaSkripExecuter extends TestBase {
         js.executeScript("window.scrollBy(0,250)", "");
 
 
+
+        //up
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
 
 
 
@@ -115,9 +116,8 @@ public class day12_JavaSkripExecuter extends TestBase {
 
 //        Scroll the page up and down
 
-        scrollAllDownJS();
-
-        scrollAllUpJS();
+            scrollAllDownJS();
+            scrollAllUpJS();
 
 
     }

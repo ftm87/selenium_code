@@ -44,7 +44,7 @@ public class day12_Actions03 extends TestBase {
 
 
     @Test
-    public void reasuableDragAndDrop(){
+    public void reasuableDragAndDrop() throws InterruptedException {
 
 
 //        Given user is on https://jqueryui.com/droppable/
@@ -58,9 +58,14 @@ public class day12_Actions03 extends TestBase {
 
         //        And user moves the target element(Drag me to my target) in to
         WebElement source = driver.findElement(By.xpath("//div[@id='draggable']"));
-
         WebElement target = driver.findElement(By.xpath("//div[@id='droppable']"));
 
+
+        //Reasuble methodunu kullan.....
+
+        actionsDragAndDrop(source,target);
+
+        Thread.sleep(3000);
 
 
 
